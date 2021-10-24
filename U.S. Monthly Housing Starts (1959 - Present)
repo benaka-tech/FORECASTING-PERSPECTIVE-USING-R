@@ -1,0 +1,6 @@
+HousingStarts = read.csv(file.choose())
+names(HousingStarts)
+housing = ts(HousingStarts$Housing.Starts,start=1959,frequency=12)
+autoplot(housing) + ggtitle("U.S. Housing Starts (1959 - Present)") + xlab("Year") + ylab("Housing Starts (in 1000's)")
+hs.sub = window(housing,start=2010)
+autoplot(hs.sub) + ggtitle("U.S. Housing Starts (2010 - Present)") + xlab("Year") + ylab("Housing Starts (in 1000's)")
