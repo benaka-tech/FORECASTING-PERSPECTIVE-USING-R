@@ -1,0 +1,5 @@
+require(fpp2)
+ddj <- diff(dj)
+str(ddj)
+autoplot(ddj)
+ggAcf(ddj)

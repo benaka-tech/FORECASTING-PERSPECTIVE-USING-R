@@ -1,0 +1,5 @@
+require(fpp2)
+mypigs <- window(pigs, start=1990)
+str(mypigs)
+autoplot(mypigs)
+ggAcf(mypigs)

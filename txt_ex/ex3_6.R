@@ -1,0 +1,15 @@
+require(fpp2)
+snaive_www <- snaive(WWWusage, h = 15)
+autoplot(snaive_www)
+checkresiduals(snaive_www)
+naive_www <- naive(WWWusage)
+autoplot(naive_www)
+checkresiduals(naive_www)
+# The ACF plot indicates that the residuals aren't white noise because of existence of significant spikes. And Ljung-Box test shows that they are statistically significant for both of methods. Therefore they aren't white noise. And the distribution of residuals isn't normal, too.
+# If I need to choose between above 2 methods, I will choose naive method because there isn't any particular seasonal pattern in the data and the Q values of Ljung-Box test were same for both methods.
+snaive_bricksq <- snaive(bricksq)
+autoplot(snaive_bricksq)
+checkresiduals(snaive_bricksq)
+naive_bricksq <- naive(bricksq)
+autoplot(naive_bricksq)
+checkresiduals(naive_bricksq)

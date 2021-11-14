@@ -1,0 +1,16 @@
+vn_Melbourne_train1 <- window(vn[, "Melbourne"], end = c(2014, 4))
+vn_Melbourne_train2 <- window(vn[, "Melbourne"], end = c(2013, 4))
+vn_Melbourne_train3 <- window(vn[, "Melbourne"], end = c(2012, 4))
+# b. Compute one year of forecasts for each training set using the snaive() method. 
+snaive_vn_Melbourne_train1 <- snaive(vn_Melbourne_train1, h = 4)
+snaive_vn_Melbourne_train2 <- snaive(vn_Melbourne_train2, h = 4)
+snaive_vn_Melbourne_train3 <- snaive(vn_Melbourne_train3, h = 4)
+# c. Use accuracy() to compare the MAPE over the three test sets. Comment on these.
+vn_Melbourne_test1 <- window(vn[, "Melbourne"], start = c(2015, 1), end = c(2015, 4))
+vn_Melbourne_test2 <- window(vn[, "Melbourne"], start = c(2014, 1), end = c(2014, 4))
+vn_Melbourne_test3 <- window(vn[, "Melbourne"], start = c(2013, 1), end = c(2013, 4))
+accuracy(snaive_vn_Melbourne_train1, vn_Melbourne_test1)
+writeLines("")
+accuracy(snaive_vn_Melbourne_train2, vn_Melbourne_test2)
+writeLines("")
+accuracy(snaive_vn_Melbourne_train3, vn_Melbourne_test3)
